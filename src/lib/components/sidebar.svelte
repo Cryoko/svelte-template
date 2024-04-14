@@ -10,6 +10,7 @@
 		ListIcon,
 		UserPlusIcon,
 	} from "svelte-feather-icons";
+    import SidebarButton from "$lib/components/sidebarButton.svelte";
 
 	import { toggleMode, setMode, resetMode } from "mode-watcher";
 	import { goto } from "$app/navigation";
@@ -19,54 +20,15 @@
 <div class="max-h-screen border-r-2 border-secondary flex flex-col">
 	<div class="flex flex-col w-52 min-h-screen p-3">
 		<!-- add a bunch of buttons-->
-		<Button
-			variant="ghost"
-			class="justify-start items-start min-w-full"
-			on:click={() => {
-				goto("/");
-			}}>
-			<div
-				class="gap-x-5 flex flex-row items-center justify-center text-lg">
-				<HomeIcon size="24" />
-				Home
-			</div>
-		</Button>
-		<Button
-			variant="ghost"
-			class="justify-start items-start"
-			on:click={() => {
-				goto("/posts");
-			}}>
-			<div
-				class="gap-x-5 flex flex-row items-center justify-center text-lg">
-				<MessageCircleIcon size="24" />
-				Posts
-			</div>
-		</Button>
-		<Button
-			variant="ghost"
-			class="justify-start items-start"
-			on:click={() => {
-				goto("/map");
-			}}>
-			<div
-				class="gap-x-5 flex flex-row items-center justify-center text-lg">
-				<MapIcon size="24" />
-				Map
-			</div>
-		</Button>
-		<Button
-			variant="ghost"
-			class="justify-start items-start"
-			on:click={() => {
-				goto("/about");
-			}}>
-			<div
-				class="gap-x-5 flex flex-row items-center justify-center text-lg">
-				<InfoIcon size="24" />
-				About
-			</div>
-		</Button>
+
+        
+
+        <SidebarButton text="Home">
+            <HomeIcon size="24" onClick={()=>{ goto("/"); }}/>
+        </SidebarButton>
+
+
+		
 
 		<Dialog />
 

@@ -4,10 +4,9 @@
     import { Label } from "$lib/components/ui/label";
     import { Input } from "$lib/components/ui/input";
     import { PlusCircleIcon } from "svelte-feather-icons";
-    import Map from "$lib/components/map.svelte";
     import { Textarea } from "$lib/components/ui/textarea";
     import DatePicker from "$lib/components/datepicker.svelte"
-    import { insertPost } from "$lib/supabaseClient";
+    // import { insertPost } from "$lib/supabaseClient";
     import { getLocalTimeZone } from "@internationalized/date";
 
     let title = "";
@@ -67,34 +66,14 @@
                 <DatePicker bind:value={expiration}/>
             </div>
 
-            <div class="grid grid-cols-4 items-center gap-4">
-                <Label for="location" class="text-right">Location</Label>
-                <div class="w-[17em] h-44 bg-clip-border rounded-lg">
-                    <Map latitude={latitude} longitude={longitude} />
-                </div>
-            </div>
+
         </div>
         <Dialog.Footer>
             <Button type="button" on:click={
                 async () => {
-                    let valueofX = 1713925195; //This is 2024/4/24 (This should not be used!)
-                    if (!!expiration) {
-                        valueofX = expiration.toDate(getLocalTimeZone()).valueOf();
-                    }
-                    if (expiration == 0) {
-                        console.log("REALLYBUGGY\nTime is set to zero!")
-                        valueofX = 1713925195;
-                        console.log(expiration);
-                    }
-                    await insertPost(
-                        title,
-                        description,
-                        valueofX,
-                        latitude,
-                        longitude
-                    );
+                   console.log("Submit")
                 }
-            }>Save changes</Button>
+            }>Submit</Button>
         </Dialog.Footer>
     </Dialog.Content>
 </Dialog.Root>

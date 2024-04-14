@@ -1,7 +1,7 @@
 <script>
 	import { Button as ButtonPrimitive } from "bits-ui";
-	import { cn } from "$lib/utils.js";
 	import { buttonVariants } from "./index.js";
+	import { cn } from "$lib/utils.js";
 	let className = undefined;
 	export let variant = "default";
 	export let size = "default";
